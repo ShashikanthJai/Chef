@@ -1,0 +1,14 @@
+#vi recipes/default.rb
+
+admins = data_bag('jaibag')
+admins.each do |login|
+admin = data_bag_item('jaibag', login)
+home = "/home/#{login}"
+user(login) do
+uid admin['uid']
+shell admin['shell']
+comment admin['comment']
+home home
+manage_home true
+end
+end
