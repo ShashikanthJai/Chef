@@ -12,3 +12,22 @@ home home
 manage_home true
 end
 end
+
+
+# Databag user creation in Chef Server
+
+{
+  "uid": "600"
+  "comment": "jai6 user"
+  "shell": "/bin/bash"
+  "password": "$1$XmbNezHp$UcemQ6wswH9Mzulgdn5H21" # Encrypted password
+}
+
+
+{
+  "uid": "601"
+  "comment": "jai5 user"
+  "shell": "/bin/bash"
+  "password": "$1$9vXaeUdx$2WJdVGM/88k2mc2wj6/Vs/"  # Encrypted password
+
+}
