@@ -13,8 +13,8 @@ manage_home true
 end
 end
 
-
-# Databag user creation in Chef Server
+# Firat goto Policy --> Data Bags --> Create --> Databagname any
+# Databag Item Cretion in Chef Server
 
 {
   "uid": "600"
