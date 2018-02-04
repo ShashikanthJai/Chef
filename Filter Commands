@@ -1,0 +1,144 @@
+yum install vsftpd
+
+yum list installed | grep vsftpd 
+
+rpm -qa vsftps --> to check package installed
+
+yum update -qa vsftpd  --> to update the package
+
+--> rpm is installer the package name
+--> yum command is used to dependently install the package automatically. It requires internet
+
+yum remove vsftpd --> to remove the package
+
+cd /etc/yum.repos.d --> all the repository are show, package are installed in the repository
+
+ip config --> to see the ip configuration
+
+eth:NIC  --> add user network and IP address
+
+LO : Looping back address local Ip Adress
+
+uname -r --> kernal version
+
+uname -m --> machine architecture
+
+uname -a --> enatire machine architecture
+
+cp <source> <destination>
+
+cp -r < source.dir> <destination .dir>
+
+scp -r <source dir/file> root@198.168.0.5:/root/ --> to copy files from one server to another
+
+cp -r ab --> to copy big data ex :- 100 GB
+
+bg : --> to see back ground process all 
+
+cd /etc/check box .d/ --> to see installed programs in ubuntu
+
+ps -ef | grep httpd --> to see all the httpd running
+
+useradd username
+
+gropadd groupname
+
+passwd: uebfugweub 
+
+rpm -qi chef-13.77.19 --> to see pachage information
+
+rpm -qR chef-13.77.19 --> to run the package use the R command
+
+rpm -ql chef-13.77.19 -->  to see what packages in the list
+
+rpm -ivh chef-13.77.19.rpm  --> to install all dependences
+
+rpm -ivh chef-13.77.19.rpm --no-dep --> with out dependences
+
+ivh - install, verbos, hash progress
+
+rpm -e chef-13.77.19 --> to remove
+
+rpm -qa chef-13.77.19 --> check
+
+rpm -qa httpd
+
+cat /etc/redhat.release
+cat /etc/issue  --> version of linux OS
+
+kill -9 pno --> to kill particular process
+
+pkill -9 httpd --> process with id and name
+
+chkconfig --list --> used to see all the list of installed services
+
+chk config --list httpd
+
+who -r --> to see run level 5
+
+find /root -ctime 1 --> one day ang created files
+
+find /root -mtime 5 --> 5 days ago modified files
+
+find /root -atime 5 (-5days less +5greater accept time)
+
+find /root -perm 644 --> to see the permision with 644
+
+find /root -name test  --> search the word test root user
+
+find | -name test 
+
+find /root -type f --> see the file in the root directory
+
+find /root -size 1024m
+find /root -size +1024m
+find /root -size -1024m   --> serach the file size in the directory
+
+sed -n '1p' demo.txt --> to print the first line
+
+sed -n '1,4p' demo.txt --> to print four line code
+
+sed -n '1p, 
+>5' demo.txt --> to print 1 and 5 line
+
+sed -n '1p 3p' demo.txt  --> to print 1 and 3 line
+
+sed '1d' demo.txt --> to delete the first line
+
+sed '1,5d' demo.txt  -->to delete 1 to 5 lines
+
+sed '1d
+>5d' demo.txt --> to delete 1 and 5 line
+
+sed 's/adding/remove/g' demo.txt --> replace remove adding place
+
+grep -n new demo.txt --> displays line number (-n)
+
+grep -c new demo.txt --> total no. of lines in file (c)
+
+grep '^we' demo.txt  --> search start with the line a particular word
+
+grpe 'word$' demo.txt --> ending with the used word in the ending line
+
+grep '^$' demo.txt  --> to see any empty lines
+
+grep -v '^$' demo.txt --> dont want ant empty lines
+
+sort test1  --> charactor in alphabatical prder
+
+sort -r test1  --> reverse order
+
+Advance filter commands
+
+grep root /etc/passed
+grep -w 'root' /etc/passwd
+grep 'root' /etc/passwd 
+
+
+
+word searching
+
+grep -i --color "woord" filename
+grep new demo.txt (new word)
+grep -i new demo.txt --> ignore case sensitive
+geep -v new demo.txt --> displays the explore the new word
