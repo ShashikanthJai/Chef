@@ -1,0 +1,166 @@
+
+
+knife cookbook upload thegeekstuff --freeze --> When you
+don’t want anybody else to be modifying a particular cookbook version
+
+knife cookbook upload thegeekstuff --> If you are trying
+to upload the same version, you’ll get the following error message.
+
+Uploading thegeekstuff  
+[2.1.0]
+
+WARNING: Not updating version constraints for thegeekstuff
+in the environment as the cookbook is frozen.
+
+ERROR: Failed to upload 1 cookbook.
+
+knife cookbook upload thegeekstuff --force -->For some
+reason, if you want to edit and upload a cookbook that is frozen, use the
+-–force option.
+
+Uploading thegeekstuff  
+[2.1.0]
+
+Uploaded 1 cookbook.
+
+knife cookbook upload -a --concurrency 15 --> When you
+are uploading lot of cookbooks that are big, you can use the  -–concurrency option. By default this is set
+to 10. In the following example, we are setting the concurrency to 15 while
+uploading cookbook
+
+knife cookbook list --> Displays cookbooks available on
+the chef server, 2nd column with latest version of cookbook
+
+dev-cluster    1.3.0
+
+dev-db         1.0.0
+
+dev-web        1.0.0
+
+thegeekstuff   2.1.0
+
+knife cookbook list -a --> To view how many versions are
+available for the cookbooks, use the -a option which will  display ALL versions. You can also use –all
+option
+
+dev-cluster   
+1.3.0  1.2.0  1.1.0 
+1.0.0  0.1.1  0.1.0
+
+dev-db        
+1.0.0  0.1.0
+
+dev-web       
+1.0.0  0.1.0
+
+thegeekstuff  
+2.1.0  2.0.0  1.0.0 
+0.1.0
+
+knife cookbook list -aw --> The -w option will display
+all the cookbook versions along with their corresponding URIs
+
+ 
+
+knife cookbook delete dev-db --> to delete the cookbook
+
+knife cookbook delete dev-db -p --> The -p option will
+delete the cookbook, and permanently purge the cookbook from the Chef server
+
+knife cookbook delete thegeekstuff --> To delete cookbook
+
+
+Which version(s) do you want to delete?
+
+1. thegeekstuff 2.1.0
+
+2. thegeekstuff 2.0.0
+
+3. thegeekstuff 1.0.0
+
+4. thegeekstuff 0.1.0
+
+5. All versions
+
+knife cookbook delete thegeekstuff -a --> to delete all
+versions of cookbook
+
+knife cookbook delete 2.1.0 thegeekstuff --> To delete particular
+version pf cookbook
+
+knife cookbook bulk delete "^dev-*" --> All the
+versions of the cookbooks will be deleted stated with 'dev'
+
+DOWNLOADING
+
+knife cookbook download dev-db
+
+knife cookbook download thegeekstuff
+
+Which version do you want to download?
+
+1. thegeekstuff 0.1.0
+
+2. thegeekstuff 1.0.0
+
+3. thegeekstuff 2.0.0
+
+4. thegeekstuff 2.1.0
+
+ 
+
+knife cookbook download thegeekstuff 1.0.0
+
+knife cookbook download thegeekstuff -N --> to download
+the latest version
+
+knife cookbook metadata -a --> will generate metadata.rb
+for the cookbooks
+
+ 
+
+ 
+
+VIEW COOKBOOK
+
+knife cookbook show thegeekstuff
+
+knife cookbook show thegeekstuff 2.1.0 --> to view
+particular version of cookbook
+
+knife cookbook show thegeekstuff 2.1.0 -F json --> to
+view in Json format
+
+knife cookbook test thegeekstuff --> to validate a
+cookbook
+
+ 
+
+ 
+
+GIT USING CHEF
+
+ 
+
+chef diff --git HEAD --> Compare current lock to latest
+commit on latest branch
+
+chef diff --git master 
+à Compare
+current lock with latest commit on master branch
+
+chef diff --git v1.0.0 à
+Compare current lock to specified revision
+
+chef diff --git master...dev 
+à Compare
+lock on master branch to lock on revision
+
+chef diff --git v1.0.0...master  à
+Compare lock for version with latest commit on master branch
+
+chef diff staging  à Compare current lock with
+latest lock for policy group
+
+chef diff production...staging  à  Compare locks for two policy groups
+
