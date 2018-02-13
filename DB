@@ -1,0 +1,59 @@
+DATABAGS
+#vi recipes/default.rb
+admins = data_bag('jaibag')admins.each do |login|admin = data_bag_item('jaibag', login)home = "/home/#{login}"user(login) douid admin['uid']shell admin['shell']comment admin['comment']home homemanage_home trueendend
+# First goto Policy --> Data Bags --> Create --> Databagname any# Databag Item Cretion in Chef Server
+{  "uid": "600",  "comment": "jai6 user",  "shell": "/bin/bash",  "password": "$1$XmbNezHp$UcemQ6wswH9Mzulgdn5H21", # Encrypted password}
+{  "uid": "601",  "comment": "jai5 user",  "shell": "/bin/bash",  "password": "$1$9vXaeUdx$2WJdVGM/88k2mc2wj6/Vs/",  # Encrypted password
+}
+{  "uid":"516"  "comment":"devops user"  "shell":"/bin/bash"  "password":"encrypted password"}
+
+knife cookbook create userdemoscd userdemos - lsvi recipes/default.rbuser 'demouser' docomment 'sys engineer'uid '560' (above  500 in linux)gid 'groupid' (gropu id)home '/home/demouser'shell '/bin/bash'password 'encrypted password'
+openssl passwd -1 password ----> to encryptopenssl passwd -1 -salt username password ---> to encrypt
+cd /etc/passwd
+userdel -r testuser --> to delete any user from node
+user_password=fdata_bag_item ("user_password")user1 docomment "sys user"uid 595password user_password["password"]
+chef-server
+policy - databag
+create --> Name (userdemo) --> create
+In Databag Items
+{"password":"Encrypted password"}
+knife data bag create DATA_BAG_NAME [DATA_BAG_ITEM] (options)
+knife data bag create admins -->To create a data bag named “admins”, 
+knife data bag delete DATA_BAG_NAME [DATA_BAG_ITEM] (options)
+knife data bag delete data_bag_name --> To delete a data bag
+knife data bag delete admins charlie --> To delete an item named “charlie”, (press Y to confirm a delete)
+knife data bag edit DATA_BAG_NAME [DATA_BAG_ITEM] (options) --> To edit a data bag
+knife data bag edit admins charlie  --> To edit an item named “charlie” that is contained in a data bag “admins”
+Create a data bag from a file: 
+knife data bag from file DATA_BAG_NAME_or_PATH JSON_FILE --> A chef-client must be version 11.6 (or higher) when      using the knife data bag from file argument with the Enterprise Chef or Open Source Chef version 11 servers.
+knife data bag from file "path to JSON file" --> To create a data bag on the Chef server from a file
+knife data bag from file devops_data --secret-file "path to decryption file" --> To create        a data bag named “devops_data” that contains encrypted data, enter
+knife data bag list --> to view the list of databags that r currently available in the chef server
+knife data bag show DATA_BAG_NAME (options) --> to view the content of the databag
+knife data bag show admins --> to view content of the databag admins
+knife data bag show admins charlie --> To show the contents of a specific item within data bag, enter
+knife data bag show passwords mysql --> To show the contents of a data bag named passwords with an item      that contains encrypted data named mysql, enter:
+knife data bag show --secret-file /path/to/decryption/file passwords mysql --> To show the decrypted     contents of the same data bag, enter
+knife data bag show admins -F json --> To view information in JSON format, use the -F common option      as part of the command like this
+ 
+JAVA_HOME= '/usr/lib/jvm/jdk/java/jdk1.7/home'
+
+vi templates/default.rb
+<html><body><head>HAI</head></body></html>
+cd /chef-repocd files/default.rbcd recipes/default.rb
+chef generate cookbook cookbookname 
+writing chef cookbooks, bootstrap a node meachine, creating roles, editing roles , applying roles to a node meachine,
+installing chef related packages like chefdk, chef-client, chef-server
+creating chef cookbooks for test automation and converting cookbooks to roles for scalibility and reusability
+adding cookbooks to run list,
+setting up own chef-server
+adding user by using datbag concept in chef 
+verify deployment logs to check for sucessful deployments 
+rpm package management, installing, upgrading and removing
+
+https://k5-doc.jp-east-1.paas.cloud.global.fujitsu.com/doc/en/K5/document/K5Portal_UserGuide_en.pdf 
+
+
+
+
+
