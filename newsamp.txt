@@ -1,0 +1,7 @@
+<html>
+<head><h1>GIT</h1>
+<body>
+welcome to gitbash in windows
+</body>
+</head>
+</html>
